@@ -1,0 +1,20 @@
+title: order
+type: object
+properties:
+  id:
+    type: string
+  status:
+    type: string
+  notes:
+    type: string
+  items:
+    type: array
+    items:
+      type: string
+  total:
+    type: object
+    properties:
+      amount:
+        type: integer
+      currency:
+        type: string
