@@ -35,12 +35,6 @@ paths:
         # Get all the animals
 
         These are the animals you are looking for
-    delete:
-      summary: ''
-      operationId: delete-animals
-      responses:
-        '200':
-          description: OK
   '/animals/{id}':
     get:
       summary: Info for a specific animal
