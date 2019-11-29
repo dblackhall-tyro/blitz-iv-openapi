@@ -1,0 +1,71 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Swagger Animals
+host: localhost:3000
+basePath: /v1
+schemes:
+  - http
+paths:
+  /animals:
+    post:
+      summary: Create an animal
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          schema:
+            $ref: '#/definitions/Animal'
+
+      responses:
+        '201':
+          description: Creates animal
+          schema:
+            type: integer
+
+    get:
+      summary: List all animals
+      responses:
+        '200':
+          description: A array of animals
+          schema:
+            $ref: "#/definitions/Animals"
+  /animals/{id}:
+    get:
+      summary: Info for a specific animal
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of the pet to retrieve
+          minimum: 1
+          type: integer
+      responses:
+        '200':
+          description: Expected response to a valid request
+          schema:
+            $ref: "#/definitions/Animal"
+        '404':
+          description: This is not the animal you are looking for
+definitions:
+  Animal:
+    type: object
+    required:
+      - name
+      - legs
+      - type
+    properties:
+      name:
+        type: string
+      legs:
+        type: integer
+        format: int64
+      type:
+        type: string
+      color:
+        type: string
+  Animals:
+    type: array
+    items:
+      $ref: "#/definitions/Animal"
