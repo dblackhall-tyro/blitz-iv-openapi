@@ -1,8 +1,8 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
   version: 1.0.0
   title: Swagger Animals
-host: localhost:3000
+host: 'localhost:3000'
 basePath: /v1
 schemes:
   - http
@@ -17,21 +17,24 @@ paths:
           name: user
           schema:
             $ref: '#/definitions/Animal'
-
       responses:
         '201':
           description: Creates animal
           schema:
             type: integer
-
+      description: Create a new animal here. For powerful deities only
     get:
       summary: List all animals
       responses:
         '200':
           description: A array of animals
           schema:
-            $ref: "#/definitions/Animals"
-  /animals/{id}:
+            $ref: '#/definitions/Animals'
+      description: |-
+        # Get all the animals
+
+        These are the animals you are looking for
+  '/animals/{id}':
     get:
       summary: Info for a specific animal
       parameters:
@@ -45,7 +48,7 @@ paths:
         '200':
           description: Expected response to a valid request
           schema:
-            $ref: "#/definitions/Animal"
+            $ref: '#/definitions/Animal'
         '404':
           description: This is not the animal you are looking for
 definitions:
@@ -68,4 +71,4 @@ definitions:
   Animals:
     type: array
     items:
-      $ref: "#/definitions/Animal"
+      $ref: '#/definitions/Animal'
