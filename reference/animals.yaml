@@ -2,6 +2,9 @@ swagger: '2.0'
 info:
   version: 1.0.0
   title: Swagger Animals
+  contact:
+    name: Harry Potter
+  description: Sample API for blitz demo
 host: 'localhost:3000'
 basePath: /v1
 schemes:
@@ -23,24 +26,19 @@ paths:
           schema:
             type: integer
       description: Create a new animal here. For powerful deities only
-      operationId: ''
+      operationId: create-animal
     get:
       summary: List all animals
       responses:
         '200':
-          description: A array of animals
+          description: An array of animals
           schema:
             $ref: '#/definitions/Animals'
       description: |-
         # Get all the animals
 
         These are the animals you are looking for
-    delete:
-      summary: ''
-      operationId: delete-animals
-      responses:
-        '200':
-          description: OK
+      operationId: list-animals
   '/animals/{id}':
     get:
       summary: Info for a specific animal
@@ -58,6 +56,8 @@ paths:
             $ref: '#/definitions/Animal'
         '404':
           description: This is not the animal you are looking for
+      operationId: get-animal
+      description: Get an animal by id
 definitions:
   Animal:
     type: object
